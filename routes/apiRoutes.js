@@ -1,8 +1,8 @@
 // LOAD DATA
 // We are linking our routes to a series of "data" sources.
 // These data sources hold arrays of information on table-data, waitinglist, etc.
-
-const notesData = require('../db/notesData');
+const router = require('express').Router();
+const notes = require('../db/notes');
 
 // ROUTING
 
@@ -13,7 +13,7 @@ module.exports = (app) => {
   // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
 
-  app.get('/api/notes', (req, res) => res.json(notesData));
+  router.get('/api/notes', (req, res) => res.json(notes));
 
 
   // API POST Requests
@@ -24,15 +24,15 @@ module.exports = (app) => {
   // Then the server saves the data to the tableData array)
   // ---------------------------------------------------------------------------
 
-  app.post('/api/notes', (req, res) => {
+  router.post('/api/notes', (req, res) => {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
-    if (notesData.length < 5) {
-      notesData.push(req.body);
+    if (notes.length < 5) {
+      notes.push(req.body);
       res.json(true);
     } else {
-      notesData.push(req.body);
+      notes.push(req.body);
       res.json(false);
     }
   });

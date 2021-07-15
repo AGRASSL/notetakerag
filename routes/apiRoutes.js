@@ -13,7 +13,7 @@ module.exports = (app) => {
   // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
 
-  router.get('/api/notes', (req, res) => res.json(notes));
+  router.get('/notes', (req, res) => res.json(notes));
 
 
   // API POST Requests
@@ -24,7 +24,7 @@ module.exports = (app) => {
   // Then the server saves the data to the tableData array)
   // ---------------------------------------------------------------------------
 
-  router.post('/api/notes', (req, res) => {
+  router.post('/notes', (req, res) => {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware

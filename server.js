@@ -2,8 +2,8 @@
 // Series of npm packages that we will use to give our server useful functionality
 
 const express = require('express');
-// const apiRoutes = require('./routes/apiRoutes');
-// const htmlRoutes = require('./routes/htmlRoutes');
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
 
 // EXPRESS CONFIGURATION
 // This sets up the basic properties for our express server
